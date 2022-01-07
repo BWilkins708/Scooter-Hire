@@ -1,0 +1,47 @@
+@startuml
+title Scooter Hire - Class Diagram
+ 
+ Class Customer{
+ Payment information
+ Personal information
+ }
+ 
+ Class Scooter{
+ Charge percent
+ Location
+ Speed
+ Status
+ 
+ }
+ 
+ Class RepairTeam{
+ Scooter locations
+ Scooter status
+ }
+ 
+ Class User{
+ Name
+ Address
+ }
+ 
+ Class Payment{
+ Card information
+ Paypal information
+ Applepay information
+ }
+ 
+ Class Ride{
+ Payment update
+ Length of ride
+ }
+ 
+ Customer "1" -- "*" Scooter
+ RepairTeam "*" -- "1" Scooter
+ User -- Customer
+ Ride -- User
+ Payment -- Ride
+ ApplePay <|-- Payment
+ CreditCard <|-- Payment
+ Paypal <|-- Payment
+ 
+@enduml
