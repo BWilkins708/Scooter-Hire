@@ -27,6 +27,7 @@ rectangle System {
   S --> (Has scan code)
   S --> (Shows Power and speed)
   S --> (Displayed weather reserved or not)
+  S --> (Charge scooter)
 }
 
 @enduml
