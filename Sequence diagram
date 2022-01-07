@@ -1,0 +1,40 @@
+@startuml
+
+title "Scooter Hire - Sequence Diagram"
+
+skinparam actorstyle hollow
+
+Actor Customer
+Boundary UI
+Control API
+Database Scooter
+
+Customer -> UI : Open app
+Customer <- UI : Sign in/Sign up
+Customer -> UI : Customer Signed in
+UI -> API : Scan for nearby scooters
+API -> Scooter : Find scooters nearby
+Scooter -> API : Scooters found
+API --> UI : Display available scooters nearby
+UI --> Customer : Show available nearby scooters
+
+Customer -> UI : Select one available scooter
+UI -> API : Scooter selected
+API <- Scooter : Scooter unlocked
+API -> UI : Scooter has been unlocked
+UI -> Customer : Ready to ride
+Customer -> UI : Ride begun
+
+Customer -> UI : End ride
+UI -> API : Ride ended
+API -> UI : Scooter status
+Customer <- UI : Ask for scooter status
+Customer --> UI : Upload picture of scooter
+UI -> API : Image uploaded
+API -> Scooter : Scooter is now avaliable 
+API -> Payment : calculate ride price
+Payment -> API : Pay for ride
+API -> UI : Payment recived 
+UI -> Customer : End of ride and payment completed
+
+@enduml
