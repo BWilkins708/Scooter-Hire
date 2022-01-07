@@ -1,0 +1,32 @@
+@startuml
+skinparam actorStyle Hollow 
+left to right direction
+title Scooter Hire - Use Case Diagram
+
+Actor :Customer: as C
+Actor :Company Repair Team: as CRP
+Actor :Scooter: as S
+
+rectangle System {
+  C --> (Create an account)
+  C --> (Find scooter near you)
+  C --> (Reserve a scooter)
+  C --> (Scan/enter code on scooter)
+  C --> (Start trip)
+  C --> (Notify if scooter low battery)
+  C --> (Park scooter)
+  C --> (Take photo of scooter)
+  C --> (Pay)
+
+  CRP --> (Drive to scooter location)
+  CRP --> (See whats wrong)
+  CRP --> (Take away to be fixed/charged)
+  CRP --> (Return to location once fixed)
+  
+  S --> (Connected to app)
+  S --> (Has scan code)
+  S --> (Shows Power and speed)
+  S --> (Displayed weather reserved or not)
+}
+
+@enduml
